@@ -13,7 +13,6 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rack-timeout (0.4.2)
     rake (11.1.2)
     sinatra (1.4.7)
       rack (~> 1.5)
@@ -29,7 +28,6 @@ DEPENDENCIES
   minitest
   pry
   rack-test
-  rack-timeout
   rake
   sinatra
 
