@@ -5,6 +5,7 @@ require 'rack/test'
 
 require_relative '../app'
 
+# This is the main app tests
 class MainAppTest < Minitest::Test
   include Rack::Test::Methods
 
@@ -14,23 +15,19 @@ class MainAppTest < Minitest::Test
 
   def test_default_response
     get '/'
+    follow_redirect!
 
     assert last_response.ok?
-    assert last_response.body.include?('Hello, world!')
+    assert last_response.body.include?('OK')
   end
 
-  def test_404_response
-    get '/404'
+  KNOWN_HTTP_CODES.each do |code, content|
+    define_method "test_#{code}_response" do
+      get "/code/#{code}"
 
-    assert last_response.not_found?
-    assert last_response.body.include?('Not Found')
-  end
-
-  def test_500_response
-    get '/500'
-
-    assert last_response.server_error?
-    assert last_response.body.include?('Server Error')
+      assert last_response.status == code
+      assert last_response.body.include?(content) unless no_body_expected?(code)
+    end
   end
 
   def test_slow_response
@@ -44,6 +41,12 @@ class MainAppTest < Minitest::Test
     get '/infinite'
 
     assert last_response.status == 302
-    assert_equal "http://example.org/infinite", last_request.url
+    assert_equal 'http://example.org/infinite', last_request.url
+  end
+
+  private
+
+  def no_body_expected?(code)
+    [204, 205, 304].include? code
   end
 end
