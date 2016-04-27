@@ -1,9 +1,10 @@
-#frozen_string_literal: true
-source "https://rubygems.org"
+# frozen_string_literal: true
+source 'https://rubygems.org'
 
-ruby "2.3.0"
+ruby '2.3.0'
 
-gem "sinatra"
+gem 'sinatra'
+gem 'puma'
 
 group :development, :test do
   gem 'pry'
