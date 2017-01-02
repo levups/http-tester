@@ -14,4 +14,8 @@ end
 group :test do
   gem 'minitest'
   gem 'rack-test'
+
+  # Test coverage & code quality monitoring
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0"
 end
