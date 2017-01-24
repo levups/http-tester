@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    codeclimate-test-reporter (1.0.4)
+    codeclimate-test-reporter (1.0.5)
       simplecov
     coderay (1.1.1)
     docile (1.1.5)
