@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    codacy-coverage (1.1.6)
+      simplecov
     codeclimate-test-reporter (1.0.5)
       simplecov
     coderay (1.1.1)
@@ -35,7 +37,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  codeclimate-test-reporter (~> 1.0)
+  codacy-coverage
+  codeclimate-test-reporter
   minitest
   pry
   puma
@@ -48,4 +51,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.13.7
+   1.14.0

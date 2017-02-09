@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 
 ruby '2.4.0'
 
-gem 'sinatra'
 gem 'puma'
+gem 'sinatra'
 
 group :development, :test do
   gem 'pry'
@@ -15,7 +15,13 @@ group :test do
   gem 'minitest'
   gem 'rack-test'
 
-  # Test coverage & code quality monitoring
-  gem "simplecov"
-  gem "codeclimate-test-reporter", "~> 1.0"
+  # Code coverage & quality monitoring gems
+  # The test helper file requires them as needed (during CI, locally, etc.) so
+  # we use a require: false here.
+  #
+  # Keep both gems here as we might switch between the two coverage/quality
+  # analysis tools depending on their servers' reliability, responsiveness.
+  gem 'codacy-coverage',           require: false
+  gem 'codeclimate-test-reporter', require: false
+  gem 'simplecov',                 require: false
 end
