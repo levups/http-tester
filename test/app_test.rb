@@ -62,6 +62,27 @@ class MainAppTest < Minitest::Test
     assert_equal 'http://example.org/infinite', last_request.url
   end
 
+  def test_xml
+    get '/xml'
+
+    assert last_response.ok?
+    assert last_response.body.include?(SAMPLE_XML)
+  end
+
+  def test_json
+    get '/json'
+
+    assert last_response.ok?
+    assert last_response.body.include?(SAMPLE_JSON)
+  end
+
+  def test_text
+    get '/text'
+
+    assert last_response.ok?
+    assert last_response.body.include?(SAMPLE_TEXT)
+  end
+
   private
 
   def no_body_expected?(code)
