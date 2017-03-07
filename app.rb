@@ -12,7 +12,7 @@ HEREDOC
 SAMPLE_XML = <<~HEREDOC
 <?xml version="1.0" encoding="UTF-8"?>
 <message>
-  <from>Alice</alice>
+  <from>Alice</from>
   <to>Bob</to>
   <body>Hello</body>
 </message>
