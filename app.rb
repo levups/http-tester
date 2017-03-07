@@ -2,6 +2,23 @@
 require 'bundler'
 require 'bundler/setup'
 require 'sinatra'
+require 'json'
+
+SAMPLE_TEXT = <<~HEREDOC
+  Stand up for what you believe in, even if it means standing alone.
+  — Andy Biersack
+HEREDOC
+
+SAMPLE_XML = <<~HEREDOC
+<?xml version="1.0" encoding="UTF-8"?>
+<message>
+  <from>Alice</alice>
+  <to>Bob</to>
+  <body>Hello</body>
+</message>
+HEREDOC
+
+SAMPLE_JSON = { life: 42, foo: 'bar', false: true, pi: 13.37 }.to_json
 
 KNOWN_HTTP_CODES = {
   200 => 'OK',
@@ -80,6 +97,21 @@ get '/code/:http_code' do
   code = KNOWN_HTTP_CODES.keys.include?(code) ? code : 200
 
   halt code, KNOWN_HTTP_CODES[code.to_i]
+end
+
+get '/json' do
+  content_type :json
+  SAMPLE_JSON
+end
+
+get '/text' do
+  content_type :text
+  SAMPLE_TEXT
+end
+
+get '/xml' do
+  content_type :xml
+  SAMPLE_XML
 end
 
 get '/infinite' do
