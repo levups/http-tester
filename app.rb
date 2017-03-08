@@ -18,6 +18,19 @@ SAMPLE_XML = <<~HEREDOC
 </message>
 HEREDOC
 
+SAMPLE_HTML = <<~HEREDOC
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Greetings Earthlings</title>
+</head>
+<body>
+  <p>Hello World !</p>
+</body>
+</html>
+HEREDOC
+
 SAMPLE_JSON = { life: 42, foo: 'bar', false: true, pi: 13.37 }.to_json
 
 KNOWN_HTTP_CODES = {
@@ -112,6 +125,11 @@ end
 get '/xml' do
   content_type :xml
   SAMPLE_XML
+end
+
+get '/html' do
+  content_type :html
+  SAMPLE_HTML
 end
 
 get '/infinite' do
