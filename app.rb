@@ -21,13 +21,8 @@ HEREDOC
 SAMPLE_HTML = <<~HEREDOC
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Greetings Earthlings</title>
-</head>
-<body>
-  <p>Hello World !</p>
-</body>
+<head><meta charset="utf-8"><title>Hi</title></head>
+<body><p>Hello World !</p></body>
 </html>
 HEREDOC
 
