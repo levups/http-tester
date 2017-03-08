@@ -10,7 +10,7 @@ SAMPLE_TEXT = <<~HEREDOC
 HEREDOC
 
 SAMPLE_XML = <<~HEREDOC
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <message>
   <from>Alice</from>
   <to>Bob</to>
