@@ -69,6 +69,13 @@ class MainAppTest < Minitest::Test
     assert last_response.body.include?(SAMPLE_XML)
   end
 
+  def test_html
+    get '/html'
+
+    assert last_response.ok?
+    assert last_response.body.include?(SAMPLE_HTML)
+  end
+
   def test_json
     get '/json'
 
