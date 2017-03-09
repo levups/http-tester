@@ -90,6 +90,14 @@ class MainAppTest < Minitest::Test
     assert last_response.body.include?(SAMPLE_TEXT)
   end
 
+  def test_local_redirect
+    get '/local-redirect'
+    follow_redirect!
+
+    assert last_response.ok?
+    assert last_response.body.include?('OK')
+  end
+
   private
 
   def no_body_expected?(code)

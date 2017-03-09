@@ -136,3 +136,8 @@ get '/slow' do
 
   'Hello, tired!'
 end
+
+get '/local-redirect' do
+ response.headers['Location'] = '/code/200'
+ halt 302
+end
