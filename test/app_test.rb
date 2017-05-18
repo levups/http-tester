@@ -101,6 +101,19 @@ class MainAppTest < Minitest::Test
     assert_equal last_request.url, 'http://example.org/html'
     assert_includes last_response.body, 'Hello World'
   end
+
+  def test_local_redirection_without_follow_redirect
+    get '/redirection/local'
+
+    assert_equal last_response.status, 302
+    assert_equal last_response.headers["Location"], 'http://example.org/html'
+  end
+
+  def test_infinite_redirection
+    get "/redirection/infinite"
+
+    assert_equal last_response.status, 302
+    assert_equal last_request.url, 'http://example.org/redirection/infinite'
   end
 
   private
