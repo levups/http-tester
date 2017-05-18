@@ -139,7 +139,7 @@ get "/redirection/infinite" do
 end
 
 get "/redirection/temporary" do
-  redirect to("/redirection/temporary"), 301
+  redirect to("/html"), 301
 end
 
 get "/redirection/local" do
