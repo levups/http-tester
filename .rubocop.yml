@@ -1,0 +1,7 @@
+AllCops:
+  TargetRubyVersion: 2.4.1
+
+# Really negligible performance gain with double quotes
+# Painfull everyday usage
+Style/StringLiterals:
+  Enabled: false
