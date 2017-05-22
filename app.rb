@@ -7,7 +7,7 @@ require "json"
 
 SAMPLE_TEXT = <<~HEREDOC
   Stand up for what you believe in, even if it means standing alone.
-  — Andy Biersack
+  - Andy Biersack
   HEREDOC
 
 SAMPLE_XML = <<~HEREDOC
