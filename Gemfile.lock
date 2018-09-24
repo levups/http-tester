@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    codacy-coverage (2.0.1)
+    codacy-coverage (2.1.0)
       simplecov
     codeclimate-test-reporter (1.0.8)
       simplecov (<= 0.13)
