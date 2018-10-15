@@ -3,7 +3,7 @@ GEM
   specs:
     codacy-coverage (2.1.0)
       simplecov
-    codeclimate-test-reporter (1.0.8)
+    codeclimate-test-reporter (1.0.9)
       simplecov (<= 0.13)
     coderay (1.1.2)
     docile (1.1.5)
