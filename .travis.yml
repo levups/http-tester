@@ -1,7 +1,3 @@
 language: ruby
 cache: bundler
-addons:
-  code_climate:
-    repo_token: a90c101f21f133cdd427ded6b8b9e3e293b901d6c95050fe6fba481655a4d583
-after_script:
-  - bundle exec codeclimate-test-reporter
+dist: xenial
