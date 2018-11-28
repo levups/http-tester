@@ -2,23 +2,9 @@
 
 ENV['RACK_ENV'] = 'test'
 
-# Local code coverage analysis
-if ENV['COVERAGE']
-  require 'simplecov'
-  SimpleCov.start 'rails'
+require 'codacy-coverage'
 
-# If we monitor coverage using Codacy, don't use any other coverage
-# analysis tool. That's why we use a "elsif"
-elsif ENV['CODACY_PROJECT_TOKEN']
-  require 'codacy-coverage'
-  Codacy::Reporter.start
-
-# Code Climate recommands initializing before everything else, and not using
-# SimpleCov's Rails specific web page generation presets.
-elsif ENV['CODECLIMATE_REPO_TOKEN']
-  require 'simplecov'
-  SimpleCov.start
-end
+Codacy::Reporter.start
 
 require 'minitest/autorun'
 require 'rack/test'
@@ -46,7 +32,9 @@ class MainAppTest < Minitest::Test
       get "/code/#{code}"
 
       assert_equal last_response.status, code
-      assert_includes(last_response.body, content) unless no_body_expected?(code)
+      unless no_body_expected?(code)
+        assert_includes(last_response.body, content)
+      end
     end
   end
 
