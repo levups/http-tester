@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-     - image: circleci/ruby:2.5.1
+     - image: circleci/ruby:2.6.2
 
     working_directory: ~/repo
 
@@ -16,9 +16,9 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          - v262-dependencies-{{ checksum "Gemfile.lock" }}
           # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          - v262-dependencies-
 
       - run:
           name: install dependencies
@@ -27,7 +27,7 @@ jobs:
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: v262-dependencies-{{ checksum "Gemfile.lock" }}
 
       # run tests!
       - run:
