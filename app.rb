@@ -147,5 +147,5 @@ get "/redirection/local" do
 end
 
 get "/redirection/other_domain" do
-  redirect "https://www.google.fr"
+  redirect "https://www.perdu.com"
 end

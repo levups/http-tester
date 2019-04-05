@@ -108,7 +108,7 @@ class MainAppTest < Minitest::Test
     get '/redirection/other_domain'
 
     assert_equal last_response.status, 302
-    assert_equal last_response.headers["Location"], 'https://www.google.fr'
+    assert_equal last_response.headers["Location"], 'https://www.perdu.com'
   end
 
   def test_infinite_redirection
