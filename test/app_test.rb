@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-ENV['RACK_ENV'] = 'test'
+ENV["RACK_ENV"] = "test"
 
-require 'codacy-coverage'
+require "codacy-coverage"
 
 Codacy::Reporter.start
 
-require 'minitest/autorun'
-require 'rack/test'
+require "minitest/autorun"
+require "rack/test"
 
-require_relative '../app'
+require_relative "../app"
 
 # This is the main app tests
 class MainAppTest < Minitest::Test
@@ -20,11 +20,11 @@ class MainAppTest < Minitest::Test
   end
 
   def test_default_response
-    get '/'
+    get "/"
     follow_redirect!
 
     assert last_response.ok?
-    assert_includes last_response.body, 'Hello World'
+    assert_includes last_response.body, "Hello World"
   end
 
   KNOWN_HTTP_CODES.each do |code, content|
@@ -40,17 +40,17 @@ class MainAppTest < Minitest::Test
 
   def test_slow_response
     before_time = Time.now
-    get '/slow'
+    get "/slow"
     after_time = Time.now
     duration   = after_time.to_f - before_time.to_f
 
     assert last_response.ok?
-    assert_includes last_response.body, 'Hello, tired!'
+    assert_includes last_response.body, "Hello, tired!"
     assert_operator duration, :>=, 10.0
   end
 
   def test_xml
-    get '/xml'
+    get "/xml"
 
     assert last_response.ok?
     assert_includes last_response.body, SAMPLE_XML
@@ -58,7 +58,7 @@ class MainAppTest < Minitest::Test
   end
 
   def test_html
-    get '/html'
+    get "/html"
 
     assert last_response.ok?
     assert_includes last_response.body, SAMPLE_HTML
@@ -66,7 +66,7 @@ class MainAppTest < Minitest::Test
   end
 
   def test_json
-    get '/json'
+    get "/json"
 
     assert last_response.ok?
     assert_includes last_response.body, SAMPLE_JSON
@@ -74,7 +74,7 @@ class MainAppTest < Minitest::Test
   end
 
   def test_text
-    get '/text'
+    get "/text"
 
     assert last_response.ok?
     assert_includes last_response.body, SAMPLE_TEXT
@@ -82,40 +82,40 @@ class MainAppTest < Minitest::Test
   end
 
   def test_local_redirection_with_follow_redirect
-    get '/redirection/local'
+    get "/redirection/local"
     follow_redirect!
 
     assert last_response.ok?
-    assert_equal last_request.url, 'http://example.org/html'
-    assert_includes last_response.body, 'Hello World'
+    assert_equal last_request.url, "http://example.org/html"
+    assert_includes last_response.body, "Hello World"
   end
 
   def test_local_redirection_without_follow_redirect
-    get '/redirection/local'
+    get "/redirection/local"
 
     assert_equal last_response.status, 302
-    assert_equal last_response.headers["Location"], 'http://example.org/html'
+    assert_equal last_response.headers["Location"], "http://example.org/html"
   end
 
   def test_temporary_redirection
-    get '/redirection/temporary'
+    get "/redirection/temporary"
 
     assert_equal last_response.status, 301
-    assert_equal last_response.headers["Location"], 'http://example.org/html'
+    assert_equal last_response.headers["Location"], "http://example.org/html"
   end
 
   def test_redirection_to_other_domain
-    get '/redirection/other_domain'
+    get "/redirection/other_domain"
 
     assert_equal last_response.status, 302
-    assert_equal last_response.headers["Location"], 'https://www.perdu.com'
+    assert_equal last_response.headers["Location"], "https://www.perdu.com"
   end
 
   def test_infinite_redirection
     get "/redirection/infinite"
 
     assert_equal last_response.status, 302
-    assert_equal last_request.url, 'http://example.org/redirection/infinite'
+    assert_equal last_request.url, "http://example.org/redirection/infinite"
   end
 
   private

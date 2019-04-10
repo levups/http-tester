@@ -8,7 +8,7 @@ require "json"
 SAMPLE_TEXT = <<~HEREDOC
   Stand up for what you believe in, even if it means standing alone.
   - Andy Biersack
-  HEREDOC
+HEREDOC
 
 SAMPLE_XML = <<~HEREDOC
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -17,7 +17,7 @@ SAMPLE_XML = <<~HEREDOC
     <to>Bob</to>
     <body>Hello</body>
   </message>
-  HEREDOC
+HEREDOC
 
 SAMPLE_HTML = <<~HEREDOC
   <!doctype html>
@@ -25,9 +25,9 @@ SAMPLE_HTML = <<~HEREDOC
   <head><meta charset="utf-8"><title>Hi</title></head>
   <body><p>Hello World !</p></body>
   </html>
-  HEREDOC
+HEREDOC
 
-SAMPLE_JSON = { life: 42, foo: "bar", false: true, pi: 13.37 }.to_json
+SAMPLE_JSON = {"life" => 42, "foo" => "bar", "false" => true, "pi" => 13.37}.to_json
 
 KNOWN_HTTP_CODES = {
   200 => "OK",
@@ -94,7 +94,7 @@ KNOWN_HTTP_CODES = {
   509 => "Bandwidth Limit Exceeded",
   510 => "Not extended",
   511 => "Network authentication required",
-  520 => "Web server is returning an unknown error"
+  520 => "Web server is returning an unknown error",
 }.freeze
 
 get "/" do
@@ -103,7 +103,7 @@ end
 
 get "/code/:http_code" do
   code = params["http_code"].to_i
-  code = KNOWN_HTTP_CODES.keys.include?(code) ? code : 200
+  code = KNOWN_HTTP_CODES.key?(code) ? code : 200
 
   halt code, KNOWN_HTTP_CODES[code.to_i]
 end
