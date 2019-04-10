@@ -1,7 +1,6 @@
-AllCops:
-  TargetRubyVersion: 2.4.1
+---
+inherit_gem:
+  standard: config/base.yml
 
-# Really negligible performance gain with double quotes
-# Painfull everyday usage
-Style/StringLiterals:
-  Enabled: false
+AllCops:
+  TargetRubyVersion: 2.6

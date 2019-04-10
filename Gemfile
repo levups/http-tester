@@ -9,6 +9,7 @@ gem "sinatra"
 group :development, :test do
   gem "pry"
   gem "rake"
+  gem "standard"
 end
 
 group :test do
