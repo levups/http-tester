@@ -2,10 +2,6 @@
 
 ENV["RACK_ENV"] = "test"
 
-require "codacy-coverage"
-
-Codacy::Reporter.start
-
 require "minitest/autorun"
 require "rack/test"
 
