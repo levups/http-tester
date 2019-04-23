@@ -2,7 +2,7 @@
 
 A tiny webservice which returns a http error page from specified code in parameters.
 
-[![Build Status](https://travis-ci.org/levups/http-tester.svg?branch=master)](https://travis-ci.org/levups/http-tester) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0ec9c29ee71d4074a8988ffd47c784cd)](https://www.codacy.com/app/levups/http-tester?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=levups/http-tester&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/levups/http-tester.svg?branch=master)](https://travis-ci.org/levups/http-tester)
 
 ## Setup
 
