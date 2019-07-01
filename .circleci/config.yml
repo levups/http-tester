@@ -31,7 +31,7 @@ jobs:
       - <<: *unit
   "ruby-2.6":
     docker:
-      - image: circleci/ruby:2.6
+      - image: circleci/ruby:2.6.3
     steps:
       - checkout
       - <<: *restore
@@ -52,7 +52,11 @@ workflows:
   version: 2
   build:
     jobs:
-      - "ruby-2.5"
       - "ruby-2.6"
+      #
+      # Scalingo where this app runs needs a Ruby version in the Gemfile
+      # so we have to skip testing on this version
+      # - "ruby-2.5"
+      #
       # Puma 4 not compatible yet
       # - "jruby"
