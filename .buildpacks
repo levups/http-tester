@@ -1,3 +1,2 @@
-https://github.com/gaffneyc/heroku-buildpack-jemalloc
-https://github.com/Scalingo/ruby-buildpack
-
+https://github.com/Scalingo/jemalloc-buildpack.git
+https://github.com/Scalingo/ruby-buildpack.git
