@@ -61,6 +61,30 @@ class MainAppTest < Minitest::Test
     assert_equal last_response.body.size, SAMPLE_HTML.size
   end
 
+  def test_js
+    get "/js"
+
+    assert last_response.ok?
+    assert_includes last_response.body, SAMPLE_JS
+    assert_equal last_response.body.size, SAMPLE_JS.size
+  end
+
+  def test_js_ad
+    get "/s_code.js"
+
+    assert last_response.ok?
+    assert_includes last_response.body, SAMPLE_JS
+    assert_equal last_response.body.size, SAMPLE_JS.size
+  end
+
+  def test_html_js_ad
+    get "/html_js_ad"
+
+    assert last_response.ok?
+    assert_includes last_response.body, SAMPLE_HTML_JS_AD
+    assert_equal last_response.body.size, SAMPLE_HTML_JS_AD.size
+  end
+
   def test_json
     get "/json"
 
