@@ -22,7 +22,20 @@ HEREDOC
 SAMPLE_HTML = <<~HEREDOC
   <!doctype html>
   <html lang="en">
-  <head><meta charset="utf-8"><title>Hi</title></head>
+  <head><meta charset="utf-8" /><title>Hi</title></head>
+  <body><p>Hello World !</p></body>
+  </html>
+HEREDOC
+
+SAMPLE_JS = <<~HEREDOC
+  console.log("hello")
+HEREDOC
+
+SAMPLE_HTML_JS_AD = <<~HEREDOC
+  <!doctype html>
+  <html lang="en">
+  <head><meta charset="utf-8" /><title>Hi</title></head>
+  <script language="javascript" src="/s_code.js"></script>
   <body><p>Hello World !</p></body>
   </html>
 HEREDOC
@@ -126,6 +139,21 @@ end
 get "/html" do
   content_type :html
   SAMPLE_HTML
+end
+
+get "/js" do
+  content_type :js
+  SAMPLE_JS
+end
+
+get "/s_code.js" do
+  content_type :js
+  SAMPLE_JS
+end
+
+get "/html_js_ad" do
+  content_type :html
+  SAMPLE_HTML_JS_AD
 end
 
 get "/slow" do
