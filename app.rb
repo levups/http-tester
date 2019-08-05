@@ -28,7 +28,8 @@ SAMPLE_HTML = <<~HEREDOC
 HEREDOC
 
 SAMPLE_JS = <<~HEREDOC
-  console.log("hello")
+  function changeTitle() { document.querySelector("title").innerText = "Plop" };
+  setTimeout(changeTitle, 2000);
 HEREDOC
 
 SAMPLE_HTML_JS_AD = <<~HEREDOC
