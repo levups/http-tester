@@ -2,8 +2,6 @@
 
 A tiny webservice which returns a http error page from specified code in parameters.
 
-[![Build Status](https://travis-ci.org/levups/http-tester.svg?branch=master)](https://travis-ci.org/levups/http-tester)
-
 ## Setup
 
 http-tester is a little sinatra application.
