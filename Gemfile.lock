@@ -40,7 +40,7 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.8.1)
       tilt (~> 2.0)
-    standard (0.1.9)
+    standard (0.1.10)
       rubocop (~> 0.79.0)
       rubocop-performance (~> 1.5.1)
     tilt (2.0.10)
