@@ -6,8 +6,5 @@ updates:
     interval: daily
     time: '09:30'
     timezone: Europe/Paris
-  pull-request-branch-name:
-    separator: "-"
-  open-pull-requests-limit: 99
   labels:
   - dependencies
