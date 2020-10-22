@@ -1,0 +1,14 @@
+linter:
+  rubocop:
+    gems:
+      - "relaxed-rubocop"
+      - "rubocop"
+      - "rubocop-minitest"
+      - "rubocop-performance"
+      - "standard"
+  remark_lint:
+    target: doc/
+    ext: markdown
+    use:
+      - remark-lint-file-extension
+      - remark-lint-no-heading-punctuation

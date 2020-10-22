@@ -2,15 +2,17 @@
 
 source "https://rubygems.org"
 
-ruby "2.7.2"
-
 gem "puma"
 gem "sinatra"
 
-group :development, :test do
+group :development do
   gem "pry"
   gem "rake"
-  gem "standard"
+  gem "relaxed-rubocop", ">= 2.5", require: false
+  gem "rubocop", ">= 1.0", require: false
+  gem "rubocop-minitest", ">= 0.10.1", require: false
+  gem "rubocop-performance", ">= 1.7.1", require: false
+  gem "standard", ">= 0.5.2", require: false
 end
 
 group :test do
