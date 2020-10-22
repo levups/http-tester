@@ -38,7 +38,7 @@ class MainAppTest < Minitest::Test
     before_time = Time.now
     get "/slow"
     after_time = Time.now
-    duration   = after_time.to_f - before_time.to_f
+    duration = after_time.to_f - before_time.to_f
 
     assert last_response.ok?
     assert_includes last_response.body, "Hello, tired!"
