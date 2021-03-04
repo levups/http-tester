@@ -1,5 +1,6 @@
 require:
-  - standard/cop/semantic_blocks
+  - standard/cop/block_delimiters
+  - rubocop-rake
   - rubocop-minitest
   - rubocop-performance
 
