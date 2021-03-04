@@ -5,6 +5,7 @@ linter:
       - "rubocop"
       - "rubocop-minitest"
       - "rubocop-performance"
+      - "rubocop-rake"
       - "standard"
   remark_lint:
     target: doc/
