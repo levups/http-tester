@@ -9,7 +9,7 @@ GEM
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
     parallel (1.22.1)
-    parser (3.1.1.0)
+    parser (3.1.2.0)
       ast (~> 2.4.1)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -75,4 +75,4 @@ DEPENDENCIES
   standard (>= 1.0)
 
 BUNDLED WITH
-   2.2.13
+   2.3.11
