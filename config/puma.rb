@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-workers Integer(ENV["WEB_CONCURRENCY"] || 2)
-threads_count = Integer(ENV["RAILS_MAX_THREADS"] || 3)
-threads threads_count, threads_count
+# Puma 6 defaults :
+# min = ENV['PUMA_MIN_THREADS'] || ENV['MIN_THREADS']
+# max = ENV['PUMA_MAX_THREADS'] || ENV['MAX_THREADS']
+# workers = ENV['WEB_CONCURRENCY']
 
-preload_app!
-
-rackup DefaultRackup
 port ENV["PORT"] || 3000
-environment ENV["RACK_ENV"] || "development"
+rackup "config.ru"
+preload_app!
